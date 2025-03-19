@@ -135,6 +135,7 @@
     "PlanetX_Basic.ultrasoundSensor|block": "مستشعر الموجات فوق الصوتية %Rjpin المسافة %distance_unit",
     "PlanetX_Basic.waterLevel|block": "مستشعر مستوى الماء %Rjpin قيمة (0~100)",
     "PlanetX_Basic.writeData|block": "مستشعر RFID منفذ IIC كتابة %data إلى البطاقة",
+    "PlanetX_Basic|block": "PlanetX_Basic",
     "PlanetX_Display.AnalogRJPin.J1|block": "ج1",
     "PlanetX_Display.AnalogRJPin.J2|block": "ج2",
     "PlanetX_Display.DigitalRJPin.J1|block": "ج1",
