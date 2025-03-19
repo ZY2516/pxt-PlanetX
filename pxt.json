@@ -23,6 +23,7 @@
         "_locales/es/pxt-PlanetX-strings.json",
         "_locales/hu/pxt-PlanetX-strings.json",
         "_locales/ar/pxt-PlanetX-strings.json",
+        "_locales/pxt-PlanetX-strings.json",
         "main.ts",
         "dstemp.ts",
         "dstemp.cpp"
