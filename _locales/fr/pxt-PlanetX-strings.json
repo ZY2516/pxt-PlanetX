@@ -99,6 +99,7 @@
     "PlanetX_Basic.UVLevel|block": "Niveau UV (0~15)%Rjpin",
     "PlanetX_Basic.gasValue|block": "Valeur concentration en gaz %sensor sur %Rjpin",
     "PlanetX_Basic.Crash|block": "Microrupteur %Rjpin est pressé",
+    "PlanetX_Basic.Tilt|block": "Capteur d'inclinaison %Rjpin détecte une inclinaison vers le bas",
     "PlanetX_Basic.ultrasoundSensor|block": "Distance télémètre ultrasons %Rjpin en %distance_unit",
     "PlanetX_Basic.PIR|block": "PIR %Rjpin détecte un mouvement",
     "PlanetX_Basic.PM25|block": "Concentration particules PM2.5 sur %Rjpin (μg/m³)",

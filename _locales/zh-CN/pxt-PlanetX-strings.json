@@ -16,6 +16,7 @@
     "PlanetX_Basic.ColorList.white|block": "白色",
     "PlanetX_Basic.ColorList.yellow|block": "黄色",
     "PlanetX_Basic.Crash|block": "碰撞传感器 %Rjpin 被按下",
+    "PlanetX_Basic.Tilt|block": "倾斜传感器 %Rjpin 检测到向下倾斜",
     "PlanetX_Basic.DHT11_state.DHT11_humidity|block": "湿度(0~100%)",
     "PlanetX_Basic.DHT11_state.DHT11_temperature_C|block": "温度(℃)",
     "PlanetX_Basic.DHT20_state.DHT20_humidity|block": "湿度(0~100%)",

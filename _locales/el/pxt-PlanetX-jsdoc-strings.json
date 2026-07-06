@@ -47,6 +47,7 @@
   "PlanetX_Display.rgb|param|green": "τιμή του πράσινου καναλιού μεταξύ 0 και 255. π.χ.: 255",
   "PlanetX_Display.rgb|param|red": "τιμή του κόκκινου καναλιού μεταξύ 0 και 255. π.χ.: 255",
   "PlanetX_Display.tm1637Create": "Δημιουργία νέου οδηγού Grove - Οθόνη 4 ψηφίων",
+  "PlanetX_Basic.Tilt": "Ελέγχει την κλίση προς τα κάτω.",
   "PlanetX_IOT.breakMQTT": "Αποστολή μηνύματος",
   "PlanetX_IOT.brokerState": "Ελέγξτε αν το ESP8266 συνδέθηκε επιτυχώς με τον μεσίτη mqtt",
   "PlanetX_IOT.connectSmartiot": "Σύνδεση στο smartiot",

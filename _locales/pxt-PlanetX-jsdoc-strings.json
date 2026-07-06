@@ -47,6 +47,7 @@
   "PlanetX_Display.rgb|param|green": "value of the green channel between 0 and 255. eg: 255",
   "PlanetX_Display.rgb|param|red": "value of the red channel between 0 and 255. eg: 255",
   "PlanetX_Display.tm1637Create": "Create a new driver Grove - 4-Digit Display",
+  "PlanetX_Basic.Tilt": "Check downward tilt.",
   "PlanetX_IOT.breakMQTT": "send message",
   "PlanetX_IOT.brokerState": "Check if ESP8266 successfully connected to mqtt broker",
   "PlanetX_IOT.connectSmartiot": "Connect to smartiot",

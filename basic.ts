@@ -1504,6 +1504,22 @@ namespace PlanetX_Basic {
         }
     }
 
+    //% blockId="Tilt" block="Tilt sensor %Rjpin detects downward tilt"
+    //% Rjpin.fieldEditor="gridpicker"
+    //% Rjpin.fieldOptions.columns=2
+    //% subcategory=Sensor group="Digital" color=#EA5532
+    export function Tilt(Rjpin: DigitalRJPin): boolean {
+        let pin = DigitalPin.P8
+        pin = RJpin_to_digital(Rjpin)
+        pins.setPull(pin, PinPullMode.PullUp)
+        if (pins.digitalReadPin(pin) == 0) {
+            return true
+        }
+        else {
+            return false
+        }
+    }
+
     let distance_last = 0
 
     //% blockId=sonarbit block="Ultrasonic sensor %Rjpin distance %distance_unit"

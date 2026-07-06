@@ -16,6 +16,7 @@
   "PlanetX_Basic.ColorList.white|block": "White",
   "PlanetX_Basic.ColorList.yellow|block": "Yellow",
   "PlanetX_Basic.Crash|block": "Crash Sensor %Rjpin is pressed",
+  "PlanetX_Basic.Tilt|block": "Tilt sensor %Rjpin detects downward tilt",
   "PlanetX_Basic.DHT11_state.DHT11_humidity|block": "humidity(0~100)",
   "PlanetX_Basic.DHT11_state.DHT11_temperature_C|block": "temperature(℃)",
   "PlanetX_Basic.DHT20_state.DHT20_humidity|block": "humidity(0~100)",

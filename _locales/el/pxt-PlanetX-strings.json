@@ -16,6 +16,7 @@
     "PlanetX_Basic.ColorList.white|block": "Λευκό",
     "PlanetX_Basic.ColorList.yellow|block": "Κίτρινο",
     "PlanetX_Basic.Crash|block": "Αισθητήρας σύγκρουσης %Rjpin πιέζεται",
+    "PlanetX_Basic.Tilt|block": "Ο αισθητήρας κλίσης %Rjpin ανιχνεύει κλίση προς τα κάτω",
     "PlanetX_Basic.DHT11_state.DHT11_humidity|block": "υγρασία(0~100)",
     "PlanetX_Basic.DHT11_state.DHT11_temperatre_C|block": "θερμοκρασία(℃)",
     "PlanetX_Basic.DHT20_state.DHT20_humidity|block": "υγρασία(0~100)",

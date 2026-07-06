@@ -1,6 +1,7 @@
 {
   "PlanetX_Basic": "Functions to PlanetX sensor by ELECFREAKS Co.,Ltd.",
   "PlanetX_Basic.Crash": "check crash",
+  "PlanetX_Basic.Tilt": "check downward tilt",
   "PlanetX_Basic.Dust": "get dust value (μg/m³)",
   "PlanetX_Basic.Dust|param|Rjpin": "describe parameter here, eg: Rjpin.J1",
   "PlanetX_Basic.GestureType": "Gestures",

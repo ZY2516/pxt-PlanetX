@@ -16,6 +16,7 @@
     "PlanetX_Basic.ColorList.white|block": "흰색",
     "PlanetX_Basic.ColorList.yellow|block": "노란색",
     "PlanetX_Basic.Crash|block": "충돌 센서 %Rjpin 눌림",
+    "PlanetX_Basic.Tilt|block": "기울기 센서 %Rjpin 아래쪽 기울임 감지됨",
     "PlanetX_Basic.DHT11_state.DHT11_humidity|block": "습도(0~100)",
     "PlanetX_Basic.DHT11_state.DHT11_temperature_C|block": "온도(℃)",
     "PlanetX_Basic.DHT20_state.DHT20_humidity|block": "습도(0~100)",

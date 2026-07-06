@@ -17,6 +17,7 @@
     "PlanetX_Basic.ColorList.white|block": "Weiß",
     "PlanetX_Basic.ColorList.yellow|block": "Gelb",
     "PlanetX_Basic.Crash|block": "Crash Sensor %Rjpin ist gedrückt",
+    "PlanetX_Basic.Tilt|block": "Neigungssensor %Rjpin erkennt Neigung nach unten",
     "PlanetX_Basic.DHT11_state.DHT11_humidity|block": "Feuchtigkeit(0~100)",
     "PlanetX_Basic.DHT11_state.DHT11_temperature_C|block": "Temperatur(℃)",
     "PlanetX_Basic.DHT20_state.DHT20_humidity|block": "Feuchtigkeit(0~100)",
