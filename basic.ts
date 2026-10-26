@@ -176,8 +176,11 @@ namespace PlanetX_Basic {
     const APDS9960_BDATAH = 0x9B
     const APDS9960_GCONF4 = 0xAB
     const APDS9960_AICLEAR = 0xE7
+    const SMR2016_ADDR = 0x43
+    const SMR2020_ADDR = 0x42 // ADDR is pulled low on the revised SMR2020 module.
     let color_first_init = false
     let color_new_init = false
+    let color_smr_addr = SMR2016_ADDR
 
     let __dht11_last_read_time = 0;
     let __temperature: number = 0
@@ -2090,53 +2093,88 @@ namespace PlanetX_Basic {
         let temp = 0
 
         if (color_new_init == false && color_first_init == false) {
+            let addresses = [SMR2016_ADDR, SMR2020_ADDR]
             let i = 0;
             while (i++ < 20) {
-                buf[0] = 0x81
-                buf[1] = 0xCA
-                pins.i2cWriteBuffer(0x43, buf)
-                buf[0] = 0x80
-                buf[1] = 0x17
-                pins.i2cWriteBuffer(0x43, buf)
-                basic.pause(50);
+                for (let addr of addresses) {
+                    buf[0] = 0x81
+                    buf[1] = 0xCA
+                    pins.i2cWriteBuffer(addr, buf)
+                    buf[0] = 0x80
+                    buf[1] = 0x17
+                    pins.i2cWriteBuffer(addr, buf)
+                    basic.pause(50);
 
-                if ((i2cread_color(0x43, 0xA4) + i2cread_color(0x43, 0xA5) * 256) != 0) {
-                    color_new_init = true
+                    if ((i2cread_color(addr, 0xA4) + i2cread_color(addr, 0xA5) * 256) != 0) {
+                        color_smr_addr = addr
+                        color_new_init = true
+                        break;
+                    }
+                }
+                if (color_new_init == true) {
                     break;
                 }
             }
         }
         if (color_new_init == true) {
             basic.pause(100);
-            c = i2cread_color(0x43, 0xA6) + i2cread_color(0x43, 0xA7) * 256;
-            r = i2cread_color(0x43, 0xA0) + i2cread_color(0x43, 0xA1) * 256;
-            g = i2cread_color(0x43, 0xA2) + i2cread_color(0x43, 0xA3) * 256;
-            b = i2cread_color(0x43, 0xA4) + i2cread_color(0x43, 0xA5) * 256;
+            c = i2cread_color(color_smr_addr, 0xA6) + i2cread_color(color_smr_addr, 0xA7) * 256;
+            r = i2cread_color(color_smr_addr, 0xA0) + i2cread_color(color_smr_addr, 0xA1) * 256;
+            g = i2cread_color(color_smr_addr, 0xA2) + i2cread_color(color_smr_addr, 0xA3) * 256;
+            b = i2cread_color(color_smr_addr, 0xA4) + i2cread_color(color_smr_addr, 0xA5) * 256;
 
-            r *= 1.3 * 0.47 * 0.83
-            g *= 0.69 * 0.56 * 0.83
-            b *= 0.80 * 0.415 * 0.83
-            c *= 0.3
+            if (color_smr_addr == 0x43) {
+                r *= 1.3 * 0.47 * 0.83
+                g *= 0.69 * 0.56 * 0.83
+                b *= 0.80 * 0.415 * 0.83
+                c *= 0.3
 
-            if (r > b && r > g) {
-                b *= 1.18;
-                g *= 0.95
-            }
+                if (r > b && r > g) {
+                    b *= 1.18;
+                    g *= 0.95
+                }
 
-            temp_c = c
-            temp_r = r
-            temp_g = g
-            temp_b = b
+                temp_c = c
+                temp_r = r
+                temp_g = g
+                temp_b = b
 
-            r = Math.min(r, 4095.9356)
-            g = Math.min(g, 4095.9356)
-            b = Math.min(b, 4095.9356)
-            c = Math.min(c, 4095.9356)
+                r = Math.min(r, 4095.9356)
+                g = Math.min(g, 4095.9356)
+                b = Math.min(b, 4095.9356)
+                c = Math.min(c, 4095.9356)
 
-            if (temp_b < temp_g) {
-                temp = temp_b
-                temp_b = temp_g
-                temp_g = temp
+                if (temp_b < temp_g) {
+                    temp = temp_b
+                    temp_b = temp_g
+                    temp_g = temp
+                }
+            } else {
+                r *= 1.3 * 0.47 * 0.55
+                g *= 0.69 * 0.56 * 0.83
+                b *= 0.80 * 0.415 * 0.68
+                c *= 0.3
+
+                if (r > b && r > g) {
+                    b *= 1.18;
+                    g *= 0.95
+                }
+
+                temp_c = c
+                temp_r = r
+                temp_g = g
+                temp_b = b
+
+                r = Math.min(r, 4095.9356)
+                g = Math.min(g, 4095.9356)
+                b = Math.min(b, 4095.9356)
+                c = Math.min(c, 4095.9356)
+
+                if (temp_b < temp_g) {
+                    temp = temp_b
+                    temp_b = temp_g
+                    temp_g = temp
+                }
             }
         }
         else {
@@ -2155,14 +2193,14 @@ namespace PlanetX_Basic {
             b = i2cread_color(APDS9960_ADDR, APDS9960_BDATAL) + i2cread_color(APDS9960_ADDR, APDS9960_BDATAH) * 256;
         }
 
-        serial.writeNumber(r)
-        serial.writeLine("r")
-        serial.writeNumber(g)
-        serial.writeLine("g")
-        serial.writeNumber(b)
-        serial.writeLine("b")
-        serial.writeNumber(c)
-        serial.writeLine("c")
+        // serial.writeNumber(r)
+        // serial.writeLine("r")
+        // serial.writeNumber(g)
+        // serial.writeLine("g")
+        // serial.writeNumber(b)
+        // serial.writeLine("b")
+        // serial.writeNumber(c)
+        // serial.writeLine("c")
 
         // map to rgb based on clear channel
         let avg = c / 3;
