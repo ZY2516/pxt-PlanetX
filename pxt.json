@@ -10,7 +10,6 @@
     "files": [
         "README.md",
         "basic.ts",
-        "display.ts",
         "wifi.ts",
         "_locales/zh-CN/pxt-PlanetX-strings.json",
         "_locales/zh-CN/pxt-PlanetX-jsdoc-strings.json",
